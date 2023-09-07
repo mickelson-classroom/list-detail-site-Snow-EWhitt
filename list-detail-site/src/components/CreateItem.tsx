@@ -17,19 +17,19 @@ export const CreateItem: FC<{
     return (
         <>
             <div>
-                <label>Name:</label>
-                <input value={name} onChange={(e) => setName(e.target.value)} />
+                <label className="form-label">Name:</label>
+                <input className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
-                <label>Number of Moons:</label>
-                <input value={numberOfMoons} onChange={(e) => parseNumberOfMoons(e.target.value)} />
+                <label className="form-label">Number of Moons:</label>
+                <input className="form-control" value={numberOfMoons} onChange={(e) => parseNumberOfMoons(e.target.value)} />
             </div>
             <div>
-                <label>Unique Feature</label>
-                <input value={feature} onChange={(e) => setFeature(e.target.value)} />
+                <label className="form-label">Unique Feature</label>
+                <input className="form-control" value={feature} onChange={(e) => setFeature(e.target.value)} />
             </div>
 
-            <button onClick={() => onSubmit(name, numberOfMoons, feature)} type="submit">Add Planet</button>
+            <button className="btn btn-primary" onClick={() => onSubmit(name, numberOfMoons, feature)} type="submit">Add Planet</button>
         </>
     )
 }

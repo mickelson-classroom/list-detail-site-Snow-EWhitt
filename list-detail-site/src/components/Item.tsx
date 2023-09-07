@@ -5,5 +5,5 @@ export const Item:FC<{
     item: Planet;
     onClick: (i: Planet) => void;
 }> = ({ item, onClick }) => {
-    return <button onClick={() => onClick(item)}>{item.name}</button>
+    return <button className="col btn btn-outline-primary" onClick={() => onClick(item)}>{item.name}</button>
 }

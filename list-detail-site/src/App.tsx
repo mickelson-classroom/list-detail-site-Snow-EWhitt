@@ -50,12 +50,13 @@ export default function App() {
 
   return (
     <>
-      <button className="btn btn-primary">Button</button>
-      <label>
-        Filter:
+      <div className="container-sm">
+        <label className="form-label">Filter:</label>
         <FilterBar value={filterValue} onChange={handleFilterUpdate} />
-      </label>
-      <List items={filteredPlanets} onSelect={handleSelectedPlanet} />
+      </div>
+      <div className="container-sm">
+        <List items={filteredPlanets} onSelect={handleSelectedPlanet} />
+      </div>
       {selectedPlanet && <Details item={selectedPlanet} onDelete={handleDeletePlanet} />}
       <CreateItem onSubmit={handleAddPlanet} />
     </>

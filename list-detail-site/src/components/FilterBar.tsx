@@ -5,6 +5,6 @@ export const FilterBar: FC<{
     onChange: (i: string) => void;
 }> = ({ value, onChange}) => {
     return (
-        <input value={value} onChange={(e) => onChange(e.target.value)} />
+        <input className="form-control" value={value} onChange={(e) => onChange(e.target.value)} />
     );
 }
