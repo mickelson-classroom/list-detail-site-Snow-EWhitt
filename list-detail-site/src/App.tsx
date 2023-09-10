@@ -24,7 +24,7 @@ export default function App() {
     setSelectedPlanet(planet);
   }
 
-  function handleDeletePlanet(id: string) {
+  function handleDeletePlanet(id: Planet["id"]) {
     const newPlanetsList = listOfPlanets.filter((planet) => (
       !planet.id.includes(id)
     ));
@@ -40,7 +40,8 @@ export default function App() {
         id: nextPlanetId.toString(),
         name: planetName,
         numMoons: planetMoons,
-        uniqueFeature: planetFeature
+        uniqueFeature: planetFeature,
+        listOfMoons: []
       }
     ]
 
@@ -48,17 +49,70 @@ export default function App() {
     setListOfPlanets(newPlanetsList);
   }
 
+  function handleDeleteMoon(id: string) {
+    const planetId = id.split('.')[0]
+    const newPlanetsList = listOfPlanets.map(planet => {
+      if (planet.id === planetId) {
+        const newMoonList = planet.listOfMoons?.filter((moon) => (
+          !moon.id.includes(id)
+        ));
+
+        return {
+          ...planet,
+          listOfMoons: newMoonList
+        };
+      }
+
+      return planet;
+    })
+
+    setListOfPlanets(newPlanetsList);
+  }
+
   return (
     <>
-      <div className="container-sm">
-        <label className="form-label">Filter:</label>
-        <FilterBar value={filterValue} onChange={handleFilterUpdate} />
-      </div>
-      <div className="container-sm">
+      <div className="container">
+        <div className="row px-5 align-items-center justify-content-center">
+          <div className="col-auto">
+            <button className="btn btn-success" data-bs-toggle="modal" data-bs-target="#AddPlanetModal">
+              Add Planet
+            </button>
+          </div>
+          <div className="col col-sm-8 col-lg-3 offset-6">
+            <label id="filterBar" className="form-label">
+              Filter:
+            </label>
+            <FilterBar value={filterValue} onChange={handleFilterUpdate} />
+          </div>
+        </div>
         <List items={filteredPlanets} onSelect={handleSelectedPlanet} />
+        <hr />
+        {
+          selectedPlanet &&
+          <Details
+            item={selectedPlanet}
+            onDeletePlanet={handleDeletePlanet}
+            onDeleteMoon={handleDeleteMoon}
+            listOfPlanets={listOfPlanets}
+            setListOfPlanets={setListOfPlanets}
+          />
+        }
       </div>
-      {selectedPlanet && <Details item={selectedPlanet} onDelete={handleDeletePlanet} />}
-      <CreateItem onSubmit={handleAddPlanet} />
+      <div className="modal" id="AddPlanetModal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="addPlanetModalLabel">New Planet</h1>
+            </div>
+            <div className="modal-body">
+              <CreateItem onSubmit={handleAddPlanet} />
+            </div>
+            <div className="modal-footer">
+              <button role="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
