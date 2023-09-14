@@ -44,7 +44,7 @@ export default function App() {
         listOfMoons: []
       }
     ]
-
+    
     setNextPlanetId((n) => n + 1);
     setListOfPlanets(newPlanetsList);
   }
@@ -78,7 +78,7 @@ export default function App() {
               Add Planet
             </button>
           </div>
-          <div className="col col-sm-8 col-lg-3 offset-6">
+          <div className="col-12 col-sm-8 col-lg-3 offset-lg-6">
             <label id="filterBar" className="form-label">
               Filter:
             </label>

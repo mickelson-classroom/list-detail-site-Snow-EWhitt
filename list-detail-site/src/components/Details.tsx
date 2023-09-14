@@ -1,5 +1,6 @@
 import { useState, FC } from 'react';
 import { Planet, Moon } from '../models/planets';
+import { CustomInput } from './CustomInput';
 
 export const Details: FC<{
   item: Planet;
@@ -22,10 +23,10 @@ export const Details: FC<{
         const newMoonList: Moon[] | undefined = [
           ...planet.listOfMoons,
           {
-              id: planetId + '.' + nextMoonId.toString(),
-              name: moonName,
-              kg: moonMass,
-              radius: moonRadius
+            id: planetId + '.' + nextMoonId.toString(),
+            name: moonName,
+            kg: moonMass,
+            radius: moonRadius
           }
         ]
 
@@ -119,28 +120,55 @@ export const Details: FC<{
               <h1 className="modal-title fs-5" id="addMoonModalLabel">New Moon</h1>
             </div>
             <div className="modal-body">
-              <div className="form">
-                <label className="form-label">Name:</label>
-                <input className="form-control" value={moonName} onChange={(e) => setMoonName(e.target.value)} />
-              </div>
-              <div>
-                <label className="form-label">Mass:</label>
-                <input className="form-control" value={moonMass} onChange={(e) => setMoonMass(parseInt(e.target.value))} />
-              </div>
-              <div>
-                <label className="form-label">Radius:</label>
-                <input className="form-control" value={moonRadius} onChange={(e) => setMoonRadius(parseInt(e.target.value))} />
-              </div>
+              <form className="needs-validation was-validated" noValidate>
+                <div>
+                  {/* <label className="form-label">Name:</label>
+                  <input className="form-control" value={moonName} onChange={(e) => setMoonName(e.target.value)} /> */}
+                  <CustomInput
+                    type="text"
+                    value={moonName}
+                    onChange={(name) => setMoonName(name)}
+                    required
+                  >
+                    Name:
+                  </CustomInput>
+                </div>
+                <div>
+                  {/* <label className="form-label">Mass:</label>
+                  <input className="form-control" value={moonMass} onChange={(e) => setMoonMass(parseInt(e.target.value))} /> */}
+                  <CustomInput
+                    type="number"
+                    value={moonMass}
+                    onChange={(mass) => setMoonMass(parseInt(mass))}
+                    required
+                  >
+                    Mass:
+                  </CustomInput>
+                </div>
+                <div>
+                  {/* <label className="form-label">Radius:</label>
+                <input className="form-control" value={moonRadius} onChange={(e) => setMoonRadius(parseInt(e.target.value))} /> */}
+                  <CustomInput
+                    id="radiusValidation"
+                    type="number"
+                    value={moonRadius}
+                    onChange={(radius: string) => setMoonRadius(parseInt(radius))}
+                    required
+                  >
+                    Radius:
+                  </CustomInput>
+                </div>
 
-              <div className="row justify-content-end px-2">
-                <button
-                  className="btn btn-primary col-auto my-3"
-                  data-bs-dismiss="modal"
-                  data-bs-target="#AddPlanetModal"
-                  onClick={() => handleAddMoon(item.id, moonName, moonMass, moonRadius)}>
-                  Add Moon
-                </button>
-              </div>
+                <div className="row justify-content-end px-2">
+                  <button
+                    className="btn btn-primary col-auto my-3"
+                    data-bs-dismiss="modal"
+                    data-bs-target="#AddPlanetModal"
+                    onClick={(e) => { e.preventDefault(); handleAddMoon(item.id, moonName, moonMass, moonRadius); }}>
+                    Add Moon
+                  </button>
+                </div>
+              </form>
             </div>
             <div className="modal-footer">
               <button role="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

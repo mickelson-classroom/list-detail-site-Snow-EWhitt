@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import { CustomInput } from './CustomInput';
 
 export const FilterBar: FC<{
     value: string;
     onChange: (i: string) => void;
 }> = ({ value, onChange}) => {
     return (
-        <input id="filterBar" className="form-control" value={value} onChange={(e) => onChange(e.target.value)} />
+        <CustomInput id="filterBar" value={value} onChange={(filterValue: string) => onChange(filterValue)} />
     );
 }
