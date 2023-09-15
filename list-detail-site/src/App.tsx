@@ -33,7 +33,8 @@ export default function App() {
   }
 
   function handleAddPlanet(planetName: string,
-    planetMoons: number, planetFeature: string) {
+    planetMoons: number, planetFeature: string,
+    planetTemperature: string, planetComposition: string) {
     const newPlanetsList: Planet[] = [
       ...listOfPlanets,
       {
@@ -41,6 +42,8 @@ export default function App() {
         name: planetName,
         numMoons: planetMoons,
         uniqueFeature: planetFeature,
+        temperature: planetTemperature,
+        composition: planetComposition,
         listOfMoons: []
       }
     ]

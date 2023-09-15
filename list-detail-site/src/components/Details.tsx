@@ -65,6 +65,19 @@ export const Details: FC<{
                 Mass: {item.mass?.earthMasses} Earth {item.mass?.earthMasses === 1 ? 'mass' : 'masses'}
               </p>
             }
+            {
+              item.temperature &&
+              <>
+                <div className="row justify-content-center">
+                  <div className="col-12">
+                    <p><strong>Temperature:</strong> {item.temperature} </p>
+                  </div>
+                  <div className="col-12">
+                    <p><strong>Composition:</strong> {item.composition} </p>
+                  </div>
+                </div>
+              </>
+            }
             <p>{item.uniqueFeature}</p>
             <button
               className="btn btn-sm btn-outline-danger"
@@ -122,8 +135,6 @@ export const Details: FC<{
             <div className="modal-body">
               <form className="needs-validation was-validated" noValidate>
                 <div>
-                  {/* <label className="form-label">Name:</label>
-                  <input className="form-control" value={moonName} onChange={(e) => setMoonName(e.target.value)} /> */}
                   <CustomInput
                     type="text"
                     value={moonName}
@@ -134,8 +145,6 @@ export const Details: FC<{
                   </CustomInput>
                 </div>
                 <div>
-                  {/* <label className="form-label">Mass:</label>
-                  <input className="form-control" value={moonMass} onChange={(e) => setMoonMass(parseInt(e.target.value))} /> */}
                   <CustomInput
                     type="number"
                     value={moonMass}
@@ -146,8 +155,6 @@ export const Details: FC<{
                   </CustomInput>
                 </div>
                 <div>
-                  {/* <label className="form-label">Radius:</label>
-                <input className="form-control" value={moonRadius} onChange={(e) => setMoonRadius(parseInt(e.target.value))} /> */}
                   <CustomInput
                     id="radiusValidation"
                     type="number"

@@ -12,10 +12,7 @@ export interface Planet {
   listOfMoons: Moon[];
   composition?: string;
   distanceFromSun?: string;
-  temperatures?: {
-    daytime: string;
-    nighttime: string;
-  };
+  temperature?: string;
   uniqueFeature: string;
 }
 
@@ -41,10 +38,6 @@ export const planets: Planet[] = [
     listOfMoons: [],
     composition: 'Rocky and metallic',
     distanceFromSun: 'Average distance of about 57.91 million kilometers',
-    temperatures: {
-      daytime: 'Up to 430°C (800°F)',
-      nighttime: 'Drops to -180°C (-290°F)',
-    },
     uniqueFeature: 'Numerous craters and cliffs on the surface.',
   },
   {
@@ -61,10 +54,6 @@ export const planets: Planet[] = [
     listOfMoons: [],
     composition: 'Rocky with a thick atmosphere mainly composed of carbon dioxide',
     distanceFromSun: 'Average distance of about 108.2 million kilometers',
-    temperatures: {
-      daytime: 'About 467°C (872°F)',
-      nighttime: 'Extremely hot',
-    },
     uniqueFeature: 'Extreme greenhouse effect and surface adorned with volcanoes.',
   },
   {
@@ -88,10 +77,6 @@ export const planets: Planet[] = [
     ],
     composition: 'Rocky with a diverse ecosystem, liquid water, and a unique atmosphere',
     distanceFromSun: 'Average distance of about 149.6 million kilometers',
-    temperatures: {
-      daytime: 'Varies by location, averages around 15°C (59°F)',
-      nighttime: 'Varies by location, can drop significantly depending on the region',
-    },
     uniqueFeature: 'Supports a rich and diverse biosphere, unique climate system, and various geological features.',
   },
   {
@@ -121,10 +106,6 @@ export const planets: Planet[] = [
     ],
     composition: 'Rocky with a thin atmosphere primarily composed of carbon dioxide',
     distanceFromSun: 'Average distance of about 227.9 million kilometers',
-    temperatures: {
-      daytime: 'Varies, but averages around -20°C (-4°F)',
-      nighttime: 'Can drop significantly, reaching lows of around -73°C (-100°F)',
-    },
     uniqueFeature: 'Largest volcano in the solar system (Olympus Mons) and evidence of past liquid water.',
   },
   {
@@ -160,10 +141,6 @@ export const planets: Planet[] = [
     ],
     composition: 'Mostly gas (primarily hydrogen and helium) with a small rocky core',
     distanceFromSun: 'Average distance of about 778.3 million kilometers',
-    temperatures: {
-      daytime: 'Varies with altitude but can be extremely cold in the upper atmosphere',
-      nighttime: 'Varies with altitude but can be extremely cold in the upper atmosphere',
-    },
     uniqueFeature: 'Largest planet in the solar system with striking bands of clouds and the Great Red Spot.',
   },
   {
@@ -199,10 +176,6 @@ export const planets: Planet[] = [
     ],
     composition: 'Mostly gas (hydrogen and helium) with a substantial system of rings',
     distanceFromSun: 'Average distance of about 1.42 billion kilometers',
-    temperatures: {
-      daytime: 'Extremely cold in the upper atmosphere',
-      nighttime: 'Warmer within the planet due to gravitational compression',
-    },
     uniqueFeature: 'Famous for its stunning ring system composed of ice and rock particles.',
   },
   {
@@ -238,10 +211,6 @@ export const planets: Planet[] = [
     ],
     composition: 'Ice giants with a mantle of water, ammonia, and methane ices',
     distanceFromSun: 'Average distance of about 2.87 billion kilometers',
-    temperatures: {
-      daytime: 'Extremely cold throughout its atmosphere',
-      nighttime: 'Extremely cold throughout its atmosphere',
-    },
     uniqueFeature: 'Axial tilt causes it to rotate almost perpendicular to its orbit, giving it a unique appearance.',
   },
   {
@@ -277,10 +246,6 @@ export const planets: Planet[] = [
     ],
     composition: 'Ice giants with a mantle of water, ammonia, and methane ices',
     distanceFromSun: 'Average distance of about 4.5 billion kilometers',
-    temperatures: {
-      daytime: 'Extremely cold throughout its atmosphere',
-      nighttime: 'Extremely cold throughout its atmosphere',
-    },
     uniqueFeature: 'Known for its deep blue color and strong winds, including the fastest in the solar system.',
   },
 ];
